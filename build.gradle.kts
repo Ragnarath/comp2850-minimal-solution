@@ -1,7 +1,7 @@
 plugins {
     application
     kotlin("jvm") version "2.2.21"
-    id("io.ktor.plugin") version "2.3.11"
+    id("io.ktor.plugin") version "2.3.12"
 }
 
 group = "uk.ac.leeds.comp2850"
@@ -11,8 +11,8 @@ repositories {
     mavenCentral()
 }
 
-val ktorVersion = "2.3.11"
-val logbackVersion = "1.4.14"
+val ktorVersion = "2.3.12"
+val logbackVersion = "1.5.6"
 val pebbleVersion = "3.2.2"
 
 dependencies {
