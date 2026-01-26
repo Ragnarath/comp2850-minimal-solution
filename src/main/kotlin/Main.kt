@@ -20,6 +20,7 @@ import utils.ReqIdKey
 import utils.SessionData
 import utils.generateRequestId
 import java.io.StringWriter
+import routes.taskRoutes
 
 /**
  * Main entry point for COMP2850 HCI server-first application.
@@ -270,6 +271,7 @@ fun Application.configureRouting() {
                 call.attributes.put(ReqIdKey, generateRequestId())
             }
             proceed()
+            taskroutes()
         }
 
         // Static files (CSS, JS, HTMX library)
