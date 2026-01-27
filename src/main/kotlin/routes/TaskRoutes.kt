@@ -1,6 +1,6 @@
 package routes
 
-import data.Taskrepository
+// import data.Taskrepository
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -38,7 +38,7 @@ private data class PaginatedTasks(
     val context: Map<String, Any>,
 )
 
-fun Route.taskRoutes() {
+/* * fun Route.taskRoutes() {
     val pebble = PebbleEngine.Builder().build()
 
     get("/tasks") {
@@ -65,7 +65,7 @@ fun Route.taskRoutes() {
         id?.let { TaskRepository.delete(it) }
         call.respondRedirect("/tasks") // PRG pattern
     }
-}
+} */
 
 fun Routing.configureTaskRoutes(store: TaskStore = TaskStore()) {
     get("/tasks") { call.handleTaskList(store) }
