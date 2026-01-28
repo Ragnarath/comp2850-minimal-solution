@@ -11,10 +11,10 @@
 
 ## Privacy & Ethics Statement
 
-- [ ] I confirm all participant data is anonymous (session IDs use P1_xxxx format, not real names)
-- [ ] I confirm all screenshots are cropped/blurred to remove PII (no names, emails, student IDs visible)
-- [ ] I confirm all participants gave informed consent
-- [ ] I confirm this work is my own (AI tools used for code assistance are cited below)
+- [ x ] I confirm all participant data is anonymous (session IDs use P1_xxxx format, not real names)
+- [x] I confirm all screenshots are cropped/blurred to remove PII (no names, emails, student IDs visible)
+- [x] I confirm all participants gave informed consent
+- [x] I confirm this work is my own (AI tools used for code assistance are cited below)
 
 **AI tools used** (if any): [e.g., "Copilot for route handler boilerplate (lines 45-67 in diffs)"]
 
