@@ -27,6 +27,22 @@
 **Week 6 Job Story #1**:
 > [Paste your Week 6 job story here - the one that informed your first task]
 
+"When I am studying for exams and working through many topics under one subject,
+I want to clearly mark individual sub-topics as completed,
+so I can trust what I’ve already covered and avoid wasting time re-studying things I already finished."
+
+"When I have multiple tasks and limited time before an exam,
+I want to organise tasks by priority,
+so I can focus on the most important work first and avoid missing critical topics."
+
+"When I cannot use a mouse or my trackpad stops working,
+I want to complete all task management actions using only the keyboard,
+so I can still work efficiently without being blocked from features."
+
+"When I’m working in bright sunlight or have eye strain issues,
+I want to see tasks clearly through strong contrast and visual grouping,
+so I can read without eye strain and quickly distinguish between tasks."
+
 **How Task 1 tests this**:
 [1 sentence explaining link]
 
