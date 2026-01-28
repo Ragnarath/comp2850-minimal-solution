@@ -1,13 +1,13 @@
 package routes
 
 // import data.Taskrepository
-import io.ktor.http.*
-import io.ktor.server.application.*
-import io.ktor.server.request.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
-import io.pebbletemplates.pebble.PebbleEngine
-import java.io.StringWriter
+// import io.ktor.http.*
+// import io.ktor.server.application.*
+// import io.ktor.server.request.*
+// import io.ktor.server.response.*
+// import io.ktor.server.routing.*
+// import io.pebbletemplates.pebble.PebbleEngine
+// import java.io.StringWriter
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.encodeURLParameter
@@ -104,7 +104,80 @@ private data class PaginatedTasks(
 
         call.respondRedirect("/tasks")
     }
-} 
+
+
+    get("/tasks/{id}/edit") {
+        val id = call.parameters["id"]?.toIntOrNull() ?: return@get call.respond(HttpStatusCode.NotFound)
+        val task = TaskRepository.get(id) ?: return@get call.respond(HttpStatusCode.NotFound)
+
+        if (call.isHtmx()) {
+            // HTMX path: return edit fragment
+            val template = pebble.getTemplate("templates/tasks/_edit.peb")
+            val model = mapOf("task" to task, "error" to null)
+            val writer = StringWriter()
+            template.evaluate(writer, model)
+            call.respondText(writer.toString(), ContentType.Text.Html)
+        } else {
+            // No-JS path: full-page render with editingId
+            val model = mapOf(
+                "title" to "Tasks",
+                "tasks" to TaskRepository.all(),
+                "editingId" to id,
+                "errorMessage" to null
+            )
+            val template = pebble.getTemplate("templates/tasks/index.peb")
+            val writer = StringWriter()
+            template.evaluate(writer, model)
+            call.respondText(writer.toString(), ContentType.Text.Html)
+        }
+    }
+
+    post("/tasks/{id}/edit") {
+    val id = call.parameters["id"]?.toIntOrNull() ?: return@post call.respond(HttpStatusCode.NotFound)
+    val task = TaskRepository.get(id) ?: return@post call.respond(HttpStatusCode.NotFound)
+
+    val newTitle = call.receiveParameters()["title"].orEmpty().trim()
+
+    // Validation
+    if (newTitle.isBlank()) {
+        if (call.isHtmx()) {
+            // HTMX path: return edit fragment with error
+            val template = pebble.getTemplate("templates/tasks/_edit.peb")
+            val model = mapOf(
+                "task" to task,
+                "error" to "Title is required. Please enter at least one character."
+            )
+            val writer = StringWriter()
+            template.evaluate(writer, model)
+            return@post call.respondText(writer.toString(), ContentType.Text.Html, HttpStatusCode.BadRequest)
+        } else {
+            // No-JS path: redirect with error flag
+            return@post call.respondRedirect("/tasks/${id}/edit?error=blank")
+        }
+    }
+
+    // Update task
+    val updatedTask = TaskRepository.update(id, newTitle)
+    if (updatedTask == null) {
+        return@post call.respond(HttpStatusCode.NotFound, "Task not found")
+    }
+
+    if (call.isHtmx()) {
+        // HTMX path: return view fragment + OOB status
+        val viewTemplate = pebble.getTemplate("templates/tasks/_item.peb")
+        val viewWriter = StringWriter()
+        viewTemplate.evaluate(viewWriter, mapOf("task" to updatedTask))
+
+        val status = """<div id="status" hx-swap-oob="true">Task "${updatedTask.title}" updated successfully.</div>"""
+
+        return@post call.respondText(viewWriter.toString() + status, ContentType.Text.Html)
+    }
+
+    // No-JS path: PRG redirect
+    call.respondRedirect("/tasks")
+}
+
+}
 
 fun ApplicationCall.isHtmx(): Boolean =
     request.headers["HX-Request"]?.equals("true", ignoreCase = true) == true
@@ -371,8 +444,9 @@ private fun messageStatusFragment(
     isError: Boolean = false,
 ): String {
     val role = if (isError) "alert" else "status"
-    val ariaLive = if (isError) """ aria-live="assertive"""" else """ aria-live="polite""""
-    val cssClass = if (isError) """ class="error"""" else ""
+    val ariaLive = if (isError) """ aria-live="assertive" """ else """ aria-live="polite" """
+    val cssClass = if (isError) """ class="error" """ else ""
+
     return """<div id="status" hx-swap-oob="true" role="$role"$ariaLive$cssClass>$message</div>"""
 }
 
