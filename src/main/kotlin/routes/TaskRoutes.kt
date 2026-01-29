@@ -317,7 +317,7 @@ private suspend fun ApplicationCall.handleToggleTask(store: TaskStore) {
 
             val statusText = if (updated.completed) "marked complete" else "marked incomplete" 
             val safeTitle = updated.title.replace("\"", "&quot;")
-            val statusHtml = messageStatusFragment("""Task "$safeTitle" $statusText."""),
+            val statusHtml = messageStatusFragment("""Task "$safeTitle" $statusText.""")
                 
 
             respondText(taskHtml + "\n" + statusHtml, ContentType.Text.Html)
