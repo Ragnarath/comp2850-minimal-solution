@@ -28,20 +28,32 @@
 > [Paste your Week 6 job story here - the one that informed your first task]
 
 "When I am studying for exams and working through many topics under one subject,
-I want to clearly mark individual sub-topics as completed,
+I want to clearly mark individual topics as completed,
 so I can trust what I’ve already covered and avoid wasting time re-studying things I already finished."
 
-"When I have multiple tasks and limited time before an exam,
-I want to organise tasks by priority,
+**Week 6 Job Story #2**
+
+"When I have multiple tasks and limited time before a deadline,
+I want to filter tasks by priority,
 so I can focus on the most important work first and avoid missing critical topics."
 
-"When I cannot use a mouse or my trackpad stops working,
-I want to complete all task management actions using only the keyboard,
-so I can still work efficiently without being blocked from features."
+**Week 6 Job Story #3**
+
+"When I update or correct an existing task while managing my work,
+I want to see the edited task update instantly on the page,
+so I can confirm the change was applied without deleting and recreating the task, saving time and avoiding mistakes."
+
+**Week 6 Job Story #4**
 
 "When I’m working in bright sunlight or have eye strain issues,
 I want to see tasks clearly through strong contrast and visual grouping,
 so I can read without eye strain and quickly distinguish between tasks."
+
+**Week 6 Job Story #5**
+
+"When I add, edit, or delete a task while managing my work,
+I want to receive a clear confirmation message that the action was successful,
+so I can trust that my change has been saved without having to recheck the page and waste time."
 
 **How Task 1 tests this**:
 [1 sentence explaining link]
@@ -50,29 +62,38 @@ so I can read without eye strain and quickly distinguish between tasks."
 
 ### Evaluation Tasks (4-5 tasks)
 
-#### Task 1 (T1): [Task Name]
+#### Task 1 (T1): Filter Important Taks
 
-- **Scenario**: [Brief context - what person needs to do]
-- **Action**: [Specific instruction - what to tell participant]
-- **Success**: [Observable outcome - how you know it worked]
-- **Target time**: [e.g., <10 seconds]
-- **Linked to**: [Week 6 Job Story #X]
+- **Scenario**: The User has several coursework tasks and an exam is approaching. Some tasks are more important than others.
+- **Action**: Type the keywords “Imp topic:” into the filter box to display only important study topics and verify that the correct tasks are shown.
+- **Success**: Only tasks beginning with “Imp topic:” remain visible, and the user can confirm they match the important topics to be studied.
+- **Target time**: 10 seconds
+- **Linked to**: Week 6 Job Story #2 (Prioritisation under deadline stress)
 
-#### Task 2 (T2): [Task Name]
 
-- **Scenario**:
-- **Action**:
-- **Success**:
-- **Target time**:
-- **Linked to**:
+#### Task 2 (T2): Editing a Task with Instant Feedback
 
-#### Task 3 (T3): [Task Name]
+- **Scenario**: One of the topic the User wanted to learn has been misspelled. The User needs to correct it.
+- **Action**: Edit the task and confirm the change happened.
+- **Success**: Edited topic appears updated immediately without deleting/re-adding and not requiring any corrections.
+- **Target time**: 12 seconds
+- **Linked to**: Week 6 Job Story #3 (Instant edit feedback)
 
-- **Scenario**:
-- **Action**:
-- **Success**:
-- **Target time**:
-- **Linked to**:
+#### Task 3 (T3): Confirm Task Action Feedback
+
+- **Scenario**: The User wants to add a new topic and then remove an old one as they were updated with an announcement stating change of topics list for the exam.
+- **Action**: Add a task called “ Memory allocation in C ”, then delete another topic " Structures and Unions in C".
+- **Success**: Participant notices a confirmation/status message and does not refresh or recheck manually.
+- **Target time**: 15 seconds
+- **Linked to**: Week 6 Job Story #5 (Action confirmation & system feedback)
+
+#### Task 4 (T4): Mark Study Topic as Completed
+
+- **Scenario**: The User is studying multiple topics under one subject and has just finished one of them. The user wants to record their progress so they don’t forget what they have already completed.
+- **Action**: Mark one study task as completed (e.g., “Imp topic: Pointers in C”).
+- **Success**: The task clearly shows a completed state (e.g., visual change, checkbox tick, style change), and the participant recognises it as done without rechecking other tasks.
+- **Target time**: 10 seconds
+- **Linked to**: Week 6 Job Story #1 (Progress tracking & task completion)
 
 [Add Tasks 4-5 as needed]
 
@@ -84,13 +105,16 @@ so I can read without eye strain and quickly distinguish between tasks."
 "Thank you for participating in my HCI evaluation. This will take about 15 minutes. I'm testing my task management interface, not you. There are no right or wrong answers."
 
 **Rights**:
-- [ ] "Your participation is voluntary. You can stop at any time without giving a reason."
-- [ ] "Your data will be anonymous. I'll use a code (like P1) instead of your name."
-- [ ] "I may take screenshots and notes. I'll remove any identifying information."
-- [ ] "Do you consent to participate?" [Wait for verbal yes]
+- [x] "Your participation is voluntary. You can stop at any time without giving a reason."
+- [x] "Your data will be anonymous. I'll use a code (like P1) instead of your name."
+- [x] "I may take screenshots and notes. I'll remove any identifying information."
+- [x] "Do you consent to participate?" [Wait for verbal yes]
 
 **Recorded consent timestamp**: [e.g., "P1 consented 22/11/2025 14:05"]
 
+"P1 consented 12/01/2026 13:25"
+"P2 consented 12/01/2026 14:50"
+"P3 consented 12/01/2026 16:45"
 ---
 
 ## 2. Findings Table
