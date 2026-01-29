@@ -50,9 +50,8 @@
     }
 
     /* Override Pico.css button color for WCAG 1.4.3 AA compliance */
-    button[type="submit"],
-    button {
-      color: white !important; /* White text on blue background for better contrast */
+    button:focus-visible {
+      outline: 3px solid #FFD700 !important; /* changes focus colour to yellow */
     }
   </style>
 </head>
