@@ -62,7 +62,7 @@ so I can trust that my change has been saved without having to recheck the page 
 
 ### Evaluation Tasks (4-5 tasks)
 
-#### Task 1 (T1): Filter Important Taks
+#### Task 1 (T1): Filter Important Task
 
 - **Scenario**: The User has several coursework tasks and an exam is approaching. Some tasks are more important than others.
 - **Action**: Type the keywords “Imp topic:” into the filter box to display only important study topics and verify that the correct tasks are shown.
@@ -74,15 +74,15 @@ so I can trust that my change has been saved without having to recheck the page 
 #### Task 2 (T2): Editing a Task with Instant Feedback
 
 - **Scenario**: One of the topic the User wanted to learn has been misspelled. The User needs to correct it.
-- **Action**: Edit the task and confirm the change happened.
+- **Action**: Edit the topic " Reprocessor Directives" to "Preprocessor Directives" and confirm the change happened.
 - **Success**: Edited topic appears updated immediately without deleting/re-adding and not requiring any corrections.
-- **Target time**: 12 seconds
+- **Target time**: 14 seconds
 - **Linked to**: Week 6 Job Story #3 (Instant edit feedback)
 
 #### Task 3 (T3): Confirm Task Action Feedback
 
 - **Scenario**: The User wants to add a new topic and then remove an old one as they were updated with an announcement stating change of topics list for the exam.
-- **Action**: Add a task called “ Memory allocation in C ”, then delete another topic " Structures and Unions in C".
+- **Action**: Add a task called “ Imp topic - Memory allocation in C ”, then delete another topic " Structures and Unions in C".
 - **Success**: Participant notices a confirmation/status message and does not refresh or recheck manually.
 - **Target time**: 15 seconds
 - **Linked to**: Week 6 Job Story #5 (Action confirmation & system feedback)
@@ -286,9 +286,9 @@ ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
 | [your-screenshot-3.png] | [Description] | [Which finding/fix this supports] |
 
 **PII check**:
-- [ ] All screenshots cropped to show only relevant UI
-- [ ] Browser bookmarks/tabs not visible
-- [ ] Participant names/emails blurred or not visible
+- [x] All screenshots cropped to show only relevant UI
+- [x] Browser bookmarks/tabs not visible
+- [x] Participant names/emails blurred or not visible
 
 ---
 
