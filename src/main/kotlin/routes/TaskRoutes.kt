@@ -332,7 +332,7 @@ private suspend fun ApplicationCall.handleToggleTask(store: TaskStore) {
  * Handle task deletion.
  */
 private suspend fun ApplicationCall.handleDeleteTask(store: TaskStore) {
-    timed("T4_delete", jsMode()) {
+    timed("T3_delete", jsMode()) {
         val id =
             parameters["id"] ?: run {
                 respond(HttpStatusCode.BadRequest, "Missing task ID")
