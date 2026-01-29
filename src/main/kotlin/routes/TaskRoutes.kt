@@ -315,12 +315,10 @@ private suspend fun ApplicationCall.handleToggleTask(store: TaskStore) {
                     mapOf("task" to updated.toPebbleContext()),
                 )
 
-            val statusText = if (updated.completed) "marked complete" else "marked incomplete"
-            val statusHtml =
-                messageStatusFragment(
-                    val safeTitle = updated.title.replace("\"", "&quot;")
-                    messageStatusFragment("""Task "$safeTitle" $statusText."""),
-                )
+            val statusText = if (updated.completed) "marked complete" else "marked incomplete" 
+            val safeTitle = updated.title.replace("\"", "&quot;")
+            val statusHtml = messageStatusFragment("""Task "$safeTitle" $statusText."""),
+                
 
             respondText(taskHtml + "\n" + statusHtml, ContentType.Text.Html)
         } else {
