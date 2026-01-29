@@ -27,7 +27,7 @@
 
 .skip-link:focus {
   top: 0;
-  outline: 3px solid #4A90E2;
+  outline: 3px solid #FFD400;
   outline-offset: 2px;
 }
 
@@ -173,7 +173,7 @@ select:focus {
 
 .task-item:focus-within {
   background-color: var(--pico-card-background-color, #f5f5f5);
-  border-color: var(--pico-primary, #4A90E2);
+  border-color: var(--pico-primary, #FFD400);
 }
 
 .task-item.completed {
