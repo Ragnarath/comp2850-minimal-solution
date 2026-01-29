@@ -272,3 +272,9 @@ select:focus {
     display: none;
   }
 }
+
+/* Keyboard-only focus ring (prefer focus-visible) */
+:focus-visible {
+  outline: 3px solid #FFD400 !important;
+  outline-offset: 2px !important;
+}
