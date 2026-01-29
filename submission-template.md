@@ -124,17 +124,17 @@ so I can trust that my change has been saved without having to recheck the page 
 | Finding | Data Source | Observation (Quote/Timestamp) | WCAG | Impact (1-5) | Inclusion (1-5) | Effort (1-5) | Priority |
 |---------|-------------|------------------------------|------|--------------|-----------------|--------------|----------|
 | SR errors not announced | metrics.csv L47-49 + P2 notes 14:23 | P2: "I didn't hear any error" | 3.3.1 Level A | 5 | 5 | 3 | 7 |
-| [Your finding 2] | [Link to metrics.csv line OR pilot notes] | [Participant quote + timestamp] | [WCAG criterion] | [1-5] | [1-5] | [1-5] | [Score] |
-| [Your finding 3] | | | | | | | |
-| [Your finding 4] | | | | | | | |
-| [Your finding 5] | | | | | | | |
+| Keyboard navigation is inefficient and frustrating (excessive tabbing, no intuitive directional movement) | P2 Task 1 (14:51), P2 Task 3 (14:54) | P2: “I had to repeatedly press tab to reach filter”, “Tabbing didn’t move upwards.” | 2.1.1 Keyboard (A), 2.4.3 Focus Order (A) | 5 | 5 | 3 | 6 |
+| Focus outline / visual focus indicator has poor contrast and blends with background | P2 Task 2 (14:52), Debrief | P2: “Colours of the key focus blended with background… unreadable.” | 2.4.7 Focus Visible (AA), 1.4.11 Non-text Contrast (AA) | 5 | 5 | 2 | 8 |
+| Edit does not work in No-JS mode (major functionality gap) | P3 Task 2 (16:47) | P3: “Editing was not possible in no Javascript.” | 1.3.1 Info & Relationships (A), 4.1.2 Name/Role/Value (A) | 5 | 4 | 3 | 7 |
+| Unexpected auto-check bug (first task becomes checked without user intent) | P3 Task 3 (16:49) | P3: “First task in list gets checked if I do something else.” | 3.2.2 On Input (A) | 4 | 4 | 3 | 5 |
 
 **Priority formula**: (Impact + Inclusion) - Effort
 
 **Top 3 priorities for redesign**:
-1. [Finding #X - Priority score Y]
-2. [Finding #X - Priority score Y]
-3. [Finding #X - Priority score Y]
+1. Focus indicator contrast problem - Priority score 8
+2. No-JS editing does not work- Priority score 7
+3. Keyboard navigation inefficiency - Priority score 6
 
 ---
 
@@ -145,16 +145,33 @@ so I can trust that my change has been saved without having to recheck the page 
 ```csv
 ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
 2025-11-22T14:18:23.456Z,P1_a7f3,req_001,T1_add,success,,890,200,on
-[Your metrics data here - all rows from Logger.kt output]
+ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
+2026-01-12T13:25:40Z,P1,r_p1_001,T0_list,success,,6,200,on
+2026-01-12T13:25:53Z,P1,r_p1_002,T1_filter,success,,7,200,on
+2026-01-12T13:27:31Z,P1,r_p1_003,T2_edit,success,,5,200,on
+2026-01-12T13:30:46Z,P1,r_p1_004,T3_add,success,,10,200,on
+2026-01-12T13:30:55Z,P1,r_p1_005,T3_delete,success,,2,200,on
+2026-01-12T13:31:55Z,P1,r_p1_006,T4_complete,success,,5,200,on
+2026-01-12T14:51:05Z,P2,r_p2_001,T0_list,success,,8,200,on
+2026-01-12T14:51:32Z,P2,r_p2_002,T1_filter,success,,9,200,on
+2026-01-12T14:53:31Z,P2,r_p2_003,T2_edit,success,,6,200,on
+2026-01-12T14:55:00Z,P2,r_p2_004,T3_add,success,,8,200,on
+2026-01-12T14:55:13Z,P2,r_p2_005,T3_delete,success,,3,200,on
+2026-01-12T14:55:47Z,P2,r_p2_006,T4_complete,success,,3,200,on
+2026-01-12T16:45:55Z,P3,r_p3_001,T0_list,success,,8,200,off
+2026-01-12T16:46:13Z,P3,r_p3_002,T1_filter,success,,4,200,off
+2026-01-12T16:47:31Z,P3,r_p3_003,T2_edit,success,,2,200,off
+2026-01-12T16:49:50Z,P3,r_p3_004,T3_add,success,,4,200,off
+2026-01-12T16:49:58Z,P3,r_p3_005,T3_delete,success,,1,200,off
+2026-01-12T16:52:54Z,P3,r_p3_006,T4_complete,success,,2,200,off
 ```
 
 **Participant summary**:
-- **P1**: [Variant - e.g., "Standard mouse + HTMX"]
-- **P2**: [Variant - e.g., "Keyboard-only, HTMX-on"]
-- **P3** (if applicable): [Variant]
-- **P4** (if applicable): [Variant]
+- **P1**: Standard mouse user + HTMX enabled
+- **P2**: Keyboard-only user, HTMX enabled
+- **P3**: Standard setup but No-JavaScript mode
 
-**Total participants**: [n=2, 3, or 4]
+**Total participants**: n = 3
 
 ---
 
