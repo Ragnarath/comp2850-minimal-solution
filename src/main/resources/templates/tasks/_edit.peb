@@ -1,4 +1,4 @@
-<li id="task-{{ task.id }}" class="task-edit">
+<li id="task-{{ task.id }}" class="task-item task-edit">
   <form action="/tasks/{{ task.id }}/edit" method="post"
         hx-post="/tasks/{{ task.id }}/edit"
         hx-target="#task-{{ task.id }}"
@@ -8,7 +8,7 @@
     <input type="text"
            id="title-{{ task.id }}"
            name="title"
-           value="{{ task.title }}"
+           value="{{ task.title|escape }}"
            required
            autofocus
            aria-describedby="hint-{{ task.id }}{% if error %} error-{{ task.id }}{% endif %}">
@@ -17,10 +17,10 @@
 
     {% if error %}
       <p id="error-{{ task.id }}" class="error" role="alert" aria-live="assertive">
-        {{ error }}
+        {{ error|escape }}
       </p>
     {% else %}
-      <p id="error-{{ task.id }}" class="visually-hidden" aria-live="assertive"></p>
+      <p id="error-{{ task.id }}" class="sr-only" aria-live="assertive"></p>
     {% endif %}
 
     <button type="submit">Save</button>

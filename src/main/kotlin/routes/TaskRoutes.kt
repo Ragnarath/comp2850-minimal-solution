@@ -294,7 +294,7 @@ private suspend fun ApplicationCall.handleCreateTaskSuccess(
  * Handle task toggle (mark complete/incomplete).
  */
 private suspend fun ApplicationCall.handleToggleTask(store: TaskStore) {
-    timed("T2_edit", jsMode()) {
+    timed("T4_complete", jsMode()) {
         val id =
             parameters["id"] ?: run {
                 respond(HttpStatusCode.BadRequest, "Missing task ID")
@@ -318,7 +318,8 @@ private suspend fun ApplicationCall.handleToggleTask(store: TaskStore) {
             val statusText = if (updated.completed) "marked complete" else "marked incomplete"
             val statusHtml =
                 messageStatusFragment(
-                    """Task "${updated.title}" $statusText.""",
+                    val safeTitle = updated.title.replace("\"", "&quot;")
+                    messageStatusFragment("""Task "$safeTitle" $statusText."""),
                 )
 
             respondText(taskHtml + "\n" + statusHtml, ContentType.Text.Html)
